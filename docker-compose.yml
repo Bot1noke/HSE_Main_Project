@@ -18,7 +18,7 @@ services:
       - defaulf
     depends_on:
       - streamlit
-    entrypoint: ["gunicorn", "-w", "1", "-b", ":8500", "main:app"]
+    entrypoint: ["gunicorn", "-w", "1", "-b", ":8500", "app:app"]
     restart: unless-stopped
 
 networks:
