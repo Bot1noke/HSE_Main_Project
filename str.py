@@ -215,18 +215,18 @@ strategy_earnings = df_strategy.groupby('release_year')['earnings'].sum()
 strategy_earnings
 
 fig_action = px.line(actions_earnings, y="earnings", title='Earnings from Actions')
-st.plotly_chart(fig)
+st.plotly_chart(fig_action)
 
 fig_adventures = px.line(adventures_earnings, y="earnings", title='Earnings from Adventures')
-st.plotly_chart(fig)
+st.plotly_chart(fig_adventures)
 
 fig_indie = px.line(indie_earnings, y="earnings", title='Earnings from Indies')
-st.plotly_chart(fig)
+st.plotly_chart(fig_indie)
 
 fig_rpg = px.line(rpg_earnings, y="earnings", title='Earnings from RPGs')
-st.plotly_chart(fig)
+st.plotly_chart(fig_rpg)
 
 fig_strategy = px.line(strategy_earnings, y="earnings", title='Earnings from Strategies')
-st.plotly_chart(fig)
+st.plotly_chart(fig_strategy)
 
 """So, we can see, that action games were definitely the most profitavle over all years exceppt 2005, but I gess it is the mistake of data, because there are 0 earnings, but it can't be true, for example in 2005 call of duty 2 was released."""
