@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 import pandas as pd
-#import streamlit as st
 
 df = pd.read_csv("steam.csv")
 hd = df[:20].values.tolist()

@@ -15,8 +15,8 @@ Hello, the aim of my project is analise and check dataset of steam games since t
 
 import numpy as np
 import pandas as pd
-import re
 import plotly.express as px
+import streamlit as st
 
 """### Reading the dataset"""
 
@@ -103,7 +103,7 @@ platforms = 'windows;mac;linux', 'windows;mac', 'windows', 'rest'
 df_platforms = pd.DataFrame({'platforms': platforms, 'proportion': size2,})
 fig = px.pie(df_platforms, values='proportion', names='platforms',
              title='Platform Ratio')
-fig.show()
+st.plotly_chart(fig)
 
 """It was obvious, that the most popular platfrom is windows, but there are interseting fact, that around 2 percent of games are exclusive for macos or linux
 
@@ -117,7 +117,7 @@ average_price_per_year = df.groupby('release_year')['price'].mean()
 df_average_price_per_year = pd.DataFrame({'release_year': sorted(df.release_year.unique()), 'price($)': average_price_per_year,})
 df_average_price_per_year
 fig = px.line(df_average_price_per_year, x ='release_year', y='price($)', title='Average price per year')
-fig.show()
+st.plotly_chart(fig)
 
 """So, we can see that in 2002 was quiet strange peak and average price was 8$, but the highest average price was in 2013
 
