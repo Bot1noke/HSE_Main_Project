@@ -19,9 +19,9 @@ posts = [
 def index():
     return render_template('main.html', head=col_names, rows=hd)
 
-@app.route('/Streamlit')
+@app.route('/Plots')
 def index2():
-    return render_template('streamlit.html', head=col_names, rows=hd)
+    return render_template('plots.html', head=col_names, rows=hd)
 
 if __name__ == '__main__':
     app.run(debug=True)
