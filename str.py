@@ -133,7 +133,7 @@ df
 number_of_releases = df['release_year'].value_counts().sort_index()
 df_number_of_releases_per_year = pd.DataFrame({'Year': sorted_years, 'Number of Releases': number_of_releases})
 fig = px.line(df_number_of_releases_per_year, x ='Year', y='Number of Releases', title='Games Released on Steam by Year')
-fig.show()
+st.plotly_chart(fig)
 
 """So, 2018 was the richest in releases, but in fact, there are linear dependence and in 2019 releases were more than in 2018, but we don't have information about it
 
@@ -152,7 +152,7 @@ owners_per_genre
 
 fig = px.bar(owners_per_genre, x='Owners', labels={'index': 'Genres'}, title= 'Popularity of each genre')
 fig.update_traces(marker_color='red')
-fig.show()
+st.plotly_chart(fig)
 
 """### Here we can see average playtime in all games per year"""
 
@@ -167,7 +167,7 @@ df_publishers = df_publishers.sort_values('Earnings', ascending = False)
 df_publishers_top = df_publishers[:10]
 fig = px.bar(df_publishers_top, y='Earnings', labels={'index': 'Companies'}, title= 'Earnings of the most big and popular companies')
 fig.update_traces(marker_color='pink')
-fig.show()
+st.plotly_chart(fig)
 
 """I only showed top 10 companies, but they are the most popular, so the most interesing to know how much have they earned
 
@@ -215,18 +215,18 @@ strategy_earnings = df_strategy.groupby('release_year')['earnings'].sum()
 strategy_earnings
 
 fig_action = px.line(actions_earnings, y="earnings", title='Earnings from Actions')
-fig_action.show()
+st.plotly_chart(fig)
 
 fig_adventures = px.line(adventures_earnings, y="earnings", title='Earnings from Adventures')
-fig_adventures.show()
+st.plotly_chart(fig)
 
 fig_indie = px.line(indie_earnings, y="earnings", title='Earnings from Indies')
-fig_indie.show()
+st.plotly_chart(fig)
 
 fig_rpg = px.line(rpg_earnings, y="earnings", title='Earnings from RPGs')
-fig_rpg.show()
+st.plotly_chart(fig)
 
 fig_strategy = px.line(strategy_earnings, y="earnings", title='Earnings from Strategies')
-fig_strategy.show()
+st.plotly_chart(fig)
 
 """So, we can see, that action games were definitely the most profitavle over all years exceppt 2005, but I gess it is the mistake of data, because there are 0 earnings, but it can't be true, for example in 2005 call of duty 2 was released."""
